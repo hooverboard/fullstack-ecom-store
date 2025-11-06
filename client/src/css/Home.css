@@ -11,7 +11,7 @@
   top: -2rem;
   left: -1rem;
   width: calc(100vw + 2rem);
-  height: 110vh;
+  height: 90vh;
   min-height: 400px;
   object-fit: cover;
   z-index: 0;
@@ -23,23 +23,74 @@
 
 .banner-ad {
   position: absolute;
-  top: 26rem;
+  top: 40vh;
   left: 30%;
   transform: translate(-50%, -50%);
   border-radius: 12px;
-  text-align: center;
+  text-align: left; /* Changed to left alignment */
   z-index: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly; /* Even spacing between items */
+  height: 40vh; /* Reduced height to bring items closer together */
+  width: 40vw; /* Give it some width */
 }
+
+/* NEW RELEASE STAR EMOJI SECTION */
+.emoji-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: -6vh;
+}
+.emoji-svg {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji-section h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: white;
+}
+
+/* ------ */
 
 .banner-ad h2 {
-  color: rgb(0, 0, 0);
+  color: white;
   font-size: 4rem;
   font-family: "Poppins", sans-serif;
-  font-weight: 900; /* Semi-bold for better visibility */
+  font-weight: 900;
+  margin: 0; /* Remove default margin for even spacing */
+  margin-bottom: -4vh;
 }
 
+.banner-ad p {
+  color: white;
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin: 0; /* Remove default margin for even spacing */
+  margin-bottom: -3vh;
+}
+/* 5 STARS */
+.five-stars {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: -1vh;
+}
+
+.five-stars svg {
+  width: 30px;
+  height: 30px;
+  margin: 0 2px;
+}
+/* ------ */
 .banner-ad button {
   background-color: rgb(142, 191, 247);
   outline: none;
@@ -47,8 +98,19 @@
   width: 9rem;
   height: 3rem;
   font-size: 13px;
-  margin-top: -2rem;
+  margin-top: 0.5rem; /* Fine-tune spacing before button */
+  /* margin-top: -4vh; Removed - flexbox handles spacing */
   border-radius: 6px;
+}
+
+.store-banner-overlay-image {
+  position: absolute;
+  top: 5vh;
+  right: 5vw;
+  width: auto;
+  height: 100vh;
+  z-index: 1;
+  object-fit: contain;
 }
 
 /* -------------------- */
