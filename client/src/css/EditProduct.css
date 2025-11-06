@@ -1,0 +1,136 @@
+/* EditProduct Page Styles */
+.edit-product-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: 40px 80px; /* More horizontal padding for wider appearance */
+  max-width: 1400px; /* Much wider container */
+  width: 60vw; /* Use more screen width */
+  margin: 20px auto; /* Reduce top/bottom margin */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* For positioning the back button */
+}
+
+.edit-product-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1.5rem; /* Reduce bottom margin */
+}
+
+.edit-product-form {
+  width: 100%;
+  max-width: 1000px; /* Much wider form */
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* Slightly reduce gap to make it less tall */
+}
+
+.edit-product-label {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.edit-product-input,
+.edit-product-textarea {
+  width: 60vw; /* Make inputs and textarea 70% width */
+  margin: 0 auto; /* Center horizontally */
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  font-size: 1rem;
+  background: #f9fafb;
+  transition: border-color 0.2s;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.edit-product-input:focus,
+.edit-product-textarea:focus {
+  border-color: #667eea;
+  outline: none;
+}
+
+.edit-product-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.edit-product-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+}
+
+.delete-product-form {
+  margin-top: 1.5rem; /* Reduce top margin */
+  width: 100%;
+  max-width: 1000px; /* Match the main form width */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the delete button */
+}
+
+.delete-product-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background: #f3f4f6;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .edit-product-container {
+    padding: 1rem;
+    max-width: 95%;
+    margin: 20px auto;
+  }
+  .edit-product-title {
+    font-size: 1.5rem;
+  }
+}
