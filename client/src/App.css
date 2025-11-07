@@ -1,4 +1,4 @@
-/* General Body and Container Styles */
+/* Estilos Gerais do Corpo e Container */
 * {
   box-sizing: border-box;
 }
@@ -26,7 +26,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Mobile-responsive root padding */
+/* Padding responsivo da raiz para mobile */
 @media (max-width: 480px) {
   #root {
     padding: 0.5rem;
@@ -37,15 +37,15 @@ body {
   box-sizing: border-box;
 }
 
-/* Dashboard Styles */
+/* Estilos do Dashboard */
 .dashboard-container {
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   padding: 32px;
-  width: 100%; /* Make container take full width inside #root */
-  max-width: 1200px; /* Limit maximum width */
-  min-width: 320px; /* Ensure minimum width */
+  width: 100%; /* Faz o container ocupar toda a largura dentro do #root */
+  max-width: 1200px; /* Limita a largura máxima */
+  min-width: 320px; /* Garante largura mínima */
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -54,11 +54,11 @@ body {
 
 .dashboard-title {
   color: #222;
-  text-align: center; /* Center the title text */
-  margin-bottom: 2rem; /* Add some space below the title */
+  text-align: center; /* Centraliza o texto do título */
+  margin-bottom: 2rem; /* Adiciona espaço abaixo do título */
 }
 
-/* Post Styles */
+/* Estilos dos Posts */
 .post {
   background-color: #fff;
   border-radius: 20px;
@@ -109,7 +109,7 @@ body {
   stroke: #d32f2f;
 }
 
-/* Auth Field Styles */
+/* Estilos dos Campos de Autenticação */
 .authField {
   background: #f3f3f3;
   border-radius: 12px;
@@ -138,7 +138,7 @@ body {
   background: #1565c0;
 }
 
-/* Create Section and Button Styles (for slide-down animation) */
+/* Estilos da Seção Criar e Botão (para animação slide-down) */
 .create-section {
   display: flex;
   flex-direction: column;
@@ -149,44 +149,44 @@ body {
 }
 
 .create-post-button {
-  background-color: #2563eb; /* Equivalent to bg-blue-600 */
+  background-color: #2563eb; /* Equivalente a bg-blue-600 */
   color: white;
   font-weight: bold;
-  padding: 0.75rem 1.5rem; /* Equivalent to py-3 px-6 */
-  border-radius: 0.5rem; /* Equivalent to rounded-lg */
+  padding: 0.75rem 1.5rem; /* Equivalente a py-3 px-6 */
+  border-radius: 0.5rem; /* Equivalente a rounded-lg */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Equivalent to shadow-lg */
-  transition: all 0.3s ease-in-out; /* Equivalent to transition duration-300 ease-in-out */
+    0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Equivalente a shadow-lg */
+  transition: all 0.3s ease-in-out; /* Equivalente a transition duration-300 ease-in-out */
   border: none;
   cursor: pointer;
   outline: none;
-  margin-bottom: 1rem; /* Space between button and form */
+  margin-bottom: 1rem; /* Espaço entre botão e formulário */
 }
 
 .create-post-button:hover {
-  background-color: #1d4ed8; /* Equivalent to hover:bg-blue-700 */
-  transform: scale(1.05); /* Equivalent to transform hover:scale-105 */
+  background-color: #1d4ed8; /* Equivalente a hover:bg-blue-700 */
+  transform: scale(1.05); /* Equivalente a transform hover:scale-105 */
 }
 
 .create-post-button:focus {
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Equivalent to focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Equivalente a focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 */
 }
 
-/* Animated Form Container */
+/* Container de Formulário Animado */
 .create-post-form-container {
-  max-height: 0; /* Hidden by default */
+  max-height: 0; /* Oculto por padrão */
   overflow: hidden;
-  transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Smooth slide animation */
+  transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Animação slide suave */
   width: 100%;
-  max-width: 480px; /* Same as modal-content max-width */
-  background-color: #fff; /* Changed to match light theme */
+  max-width: 480px; /* Mesmo que a largura máxima do conteúdo do modal */
+  background-color: #fff; /* Alterado para corresponder ao tema claro */
   border-radius: 0.5rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08),
     0 4px 6px -2px rgba(0, 0, 0, 0.04);
   border: 1px solid #e2e8f0;
-  padding: 0 1.5rem; /* Start with no vertical padding */
-  box-sizing: border-box; /* Include padding in width calculation */
-  margin: 0 auto; /* Center horizontally */
+  padding: 0 1.5rem; /* Começa sem padding vertical */
+  box-sizing: border-box; /* Inclui padding no cálculo da largura */
+  margin: 0 auto; /* Centraliza horizontalmente */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -194,14 +194,14 @@ body {
 }
 
 .create-post-form-container.show {
-  max-height: 500px; /* Adjust this value to be larger than the form's natural height */
-  padding: 1.5rem; /* Expand padding when shown */
-  background-color: #fff; /* Ensure light background when open */
+  max-height: 500px; /* Ajuste este valor para ser maior que a altura natural do formulário */
+  padding: 1.5rem; /* Expande padding quando exibido */
+  background-color: #fff; /* Garante fundo claro quando aberto */
 }
 
 .form-group {
   margin-bottom: 1rem;
-  text-align: center; /* Center text within the form group (for labels) */
+  text-align: center; /* Centraliza texto dentro do grupo do formulário (para labels) */
 }
 
 .form-label {
@@ -240,9 +240,9 @@ body {
 .form-actions {
   display: flex;
   align-items: center;
-  justify-content: center; /* Changed from space-between to center */
-  gap: 1rem; /* Add some space between buttons */
-  margin-top: 1.5rem; /* Space above buttons */
+  justify-content: center; /* Mudou de space-between para center */
+  gap: 1rem; /* Adiciona espaço entre os botões */
+  margin-top: 1.5rem; /* Espaço acima dos botões */
 }
 
 .submit-button {
@@ -287,7 +287,7 @@ body {
   box-shadow: 0 0 0 2px rgba(74, 85, 104, 0.5);
 }
 
-/* Admin Actions Section */
+/* Seção de Ações do Admin */
 .admin-actions-section {
   display: flex;
   gap: 1rem;
@@ -321,7 +321,7 @@ body {
   box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
 }
 
-/* Manage Orders Page Styles */
+/* Estilos da Página Gerenciar Pedidos */
 .back-button {
   background: #6c757d;
   color: white;
@@ -338,7 +338,7 @@ body {
   background: #5a6268;
 }
 
-/* Search Bar Styles */
+/* Estilos da Barra de Pesquisa */
 .orders-header {
   display: flex;
   justify-content: space-between;
@@ -496,7 +496,7 @@ body {
   background: white;
 }
 
-/* View Details Button in Orders Table */
+/* Botão Ver Detalhes na Tabela de Pedidos */
 .view-details-btn {
   background: #6c63ff;
   color: white;
@@ -541,7 +541,7 @@ body {
   color: #6c757d;
 }
 
-/* Analytics Cards */
+/* Cartões de Análise */
 .main-card {
   margin-bottom: 2rem;
 }
@@ -625,7 +625,7 @@ body {
   color: #dc3545;
 }
 
-/* Order Details Page */
+/* Página de Detalhes do Pedido */
 .order-details-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -880,7 +880,7 @@ body {
   color: #dc3545;
 }
 
-/* Order Details Admin Page */
+/* Página de Detalhes do Pedido Admin */
 .order-details-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -926,7 +926,7 @@ body {
   gap: 25px;
 }
 
-/* Order Summary Card */
+/* Cartão de Resumo do Pedido */
 .order-summary-card {
   background: white;
   border-radius: 12px;
@@ -988,7 +988,7 @@ body {
   font-size: 1.3rem;
 }
 
-/* Status Update Section */
+/* Seção de Atualização de Status */
 .status-update-section {
   border-top: 1px solid #f0f0f0;
   padding-top: 20px;
@@ -1019,7 +1019,7 @@ body {
   box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
 }
 
-/* Shipping Card */
+/* Cartão de Envio */
 .shipping-card {
   background: white;
   border-radius: 12px;
@@ -1042,7 +1042,7 @@ body {
   line-height: 1.5;
 }
 
-/* Order Items Card */
+/* Cartão de Itens do Pedido */
 .order-items-card {
   background: white;
   border-radius: 12px;
@@ -1148,7 +1148,7 @@ body {
   font-weight: 700;
 }
 
-/* Order Total Card */
+/* Cartão de Total do Pedido */
 .order-total-card {
   background: white;
   border-radius: 12px;
@@ -1205,7 +1205,7 @@ body {
   font-size: 1.4rem;
 }
 
-/* Responsive Design for Order Details */
+/* Design Responsivo para Detalhes do Pedido */
 @media (max-width: 768px) {
   .order-details-container {
     padding: 15px;
@@ -1301,4 +1301,4 @@ body {
   }
 }
 
-/* Mobile Responsive */
+/* Responsivo para Mobile */

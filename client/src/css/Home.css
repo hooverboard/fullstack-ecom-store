@@ -1,42 +1,43 @@
-/* Home Page */
+/* Página Inicial */
 .home-page {
   position: relative;
   z-index: 1;
   min-height: 110vh;
 }
 
-/* Store Banner Background */
+/* Plano de Fundo do Banner da Loja */
 .store-banner {
   position: absolute;
   top: -2rem;
-  left: -1rem;
-  width: calc(100vw + 2rem);
-  height: 90vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 110vh;
   min-height: 400px;
   object-fit: cover;
   z-index: 0;
-  border-radius: 0;
+  border-radius: 0px 0px 35px 35px;
 }
 
 /* -------------------- */
-/* Banner Ad Overlay */
+/* Sobreposição do Anúncio do Banner */
 
 .banner-ad {
   position: absolute;
-  top: 40vh;
-  left: 30%;
+  top: 45vh;
+  left: 35%;
   transform: translate(-50%, -50%);
   border-radius: 12px;
-  text-align: left; /* Changed to left alignment */
+  text-align: left;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly; /* Even spacing between items */
-  height: 40vh; /* Reduced height to bring items closer together */
-  width: 40vw; /* Give it some width */
+  justify-content: space-evenly;
+  height: 40vh;
+  width: 40vw;
 }
 
-/* NEW RELEASE STAR EMOJI SECTION */
+/* SEÇÃO EMOJI DE NOVA VERSÃO */
 .emoji-section {
   display: flex;
   align-items: center;
@@ -59,13 +60,14 @@
 }
 
 /* ------ */
+/* Título e Descrição do Banner */
 
 .banner-ad h2 {
   color: white;
   font-size: 4rem;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
-  margin: 0; /* Remove default margin for even spacing */
+  margin: 0;
   margin-bottom: -4vh;
 }
 
@@ -74,10 +76,10 @@
   font-size: 1.5rem;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  margin: 0; /* Remove default margin for even spacing */
+  margin: 0;
   margin-bottom: -3vh;
 }
-/* 5 STARS */
+/* 5 ESTRELAS */
 .five-stars {
   display: flex;
   flex-direction: row;
@@ -90,34 +92,37 @@
   height: 30px;
   margin: 0 2px;
 }
+
 /* ------ */
+/* Botão do Banner */
+
 .banner-ad button {
-  background-color: rgb(142, 191, 247);
+  background-color: rgb(255, 255, 255);
   outline: none;
   color: black;
   width: 9rem;
   height: 3rem;
   font-size: 13px;
-  margin-top: 0.5rem; /* Fine-tune spacing before button */
-  /* margin-top: -4vh; Removed - flexbox handles spacing */
+  margin-top: 2vh;
   border-radius: 6px;
 }
 
+/* Imagem de Sobreposição do Banner da Loja */
 .store-banner-overlay-image {
   position: absolute;
-  top: 5vh;
+  top: 0vh;
   right: 5vw;
   width: auto;
-  height: 100vh;
+  height: 55vw;
   z-index: 1;
   object-fit: contain;
 }
 
 /* -------------------- */
 
-/* Browse Categories Section */
+/* Seção Navegar por Categorias */
 .browse-categories {
-  margin-top: 100vh; /* Push content below the banner */
+  margin-top: 100vh;
   padding: 2rem;
   text-align: left;
   position: relative;
@@ -140,13 +145,34 @@
 .categories button {
   width: 9vw;
   height: 9vw;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
+  background-color: white;
+}
+
+.categories button svg {
+  width: 50%;
+  height: 50%;
+}
+
+.categories button img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.categories button span {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 /* -------------------- */
-/* Featured Product */
+/* Produto em Destaque */
 
 .featured-product {
   display: flex;
@@ -172,8 +198,16 @@
   display: flex;
   flex-direction: row;
   margin-left: 4vw;
+  gap: 20px;
 }
-.countdown-timer span {
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-number {
   font-size: 2rem;
   font-weight: 600;
   color: #333;
@@ -184,7 +218,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 10px;
+  margin-bottom: 8px;
+}
+
+.countdown-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  font-family: "Poppins", sans-serif;
 }
 
 .featured-product-btn {
@@ -197,19 +238,18 @@
   min-width: 150px;
   min-height: 50px;
   font-size: 13px;
-  /* margin-left: 10vw; */
-  margin: 5vh 10vw 5vh 150px; /* top / right / bottom / left */
+  margin: 5vh 10vw 5vh 150px;
   border-radius: 6px;
   display: block;
 }
 
 .featured-image img {
-  width: auto; /* Makes image 60% of container width */
-  height: 65vh; /* Maintains aspect ratio */
+  width: auto;
+  height: 65vh;
   margin-top: -15vh;
 }
 
-/* EXPLORE PRODUCTS */
+/* EXPLORAR PRODUTOS */
 .explore-products {
   display: flex;
   flex-direction: column;
@@ -232,7 +272,7 @@
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns */
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   justify-items: center;
   max-width: 1200px;
@@ -248,4 +288,19 @@
   font-size: 14px;
   margin: 40px auto 0 auto;
   border-radius: 6px;
+}
+
+/* -------------------- */
+/* Barra de Rolagem */
+
+.scroll-handle {
+  position: absolute;
+  top: 92vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 6px;
+  background-color: #1e3a8a;
+  border-radius: 10px;
+  z-index: 2;
 }

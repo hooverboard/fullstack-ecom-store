@@ -7,7 +7,24 @@ import StoreProduct from "../components/StoreProduct";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
+  // Gerar uma data final aleatória entre 10 e 30 dias a partir de hoje
+  const getRandomEndDate = () => {
+    const now = new Date().getTime();
+    const minDays = 10;
+    const maxDays = 30;
+    const randomDays =
+      Math.floor(Math.random() * (maxDays - minDays + 1)) + minDays;
+    return now + randomDays * 24 * 60 * 60 * 1000;
+  };
+
+  // Buscar todos os produtos
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -23,24 +40,61 @@ export default function Home() {
     fetchProducts();
   }, []);
 
+  // Efeito do timer de contagem regressiva
+  useEffect(() => {
+    // Obter ou definir uma data final aleatória
+    let endDate = localStorage.getItem("countdownEndDate");
+    if (!endDate) {
+      endDate = getRandomEndDate();
+      localStorage.setItem("countdownEndDate", endDate);
+    } else {
+      endDate = parseInt(endDate);
+    }
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = endDate - now;
+
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        setTimeLeft({ days, hours, minutes, seconds });
+      } else {
+        // gerar nova data aleatória quando timer expirar
+        const newEndDate = getRandomEndDate();
+        localStorage.setItem("countdownEndDate", newEndDate);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   console.log(products);
   return (
     <div className="home-page">
       <Navbar />
 
-      {/* Store Banner  & Banner Overlay*/}
+      {/* Banner da Loja & Sobreposição do Banner */}
       <img
         src="/images/banner.jpg"
         alt="Store Banner"
         className="store-banner"
       />
 
+      {/* SOBREPOSIÇÃO AIRPODS MAX */}
       <img
         src="/images/airpods-max-blue.png"
         alt="AirPods Max Blue"
         className="store-banner-overlay-image"
       />
 
+      {/* INFORMAÇÕES DO PRODUTO PRINCIPAL */}
       <div className="banner-ad">
         <div className="emoji-section">
           <svg
@@ -229,19 +283,42 @@ export default function Home() {
         <button>Shop Now</button>
       </div>
 
+      {/* SEÇÃO NAVEGAR POR CATEGORIAS */}
       <div className="browse-categories">
         <h1>Browse by category</h1>
         <div className="categories">
-          <button>Phones</button>
-          <button>Tablets</button>
-          <button>Accessories</button>
-          <button>Music</button>
-          <button>TVs</button>
-          <button>Monitors</button>
-          <button>Gaming</button>
+          <button>
+            <img src="/images/phone-icon.jpg" alt="Phones" />
+            <span>Phones</span>
+          </button>
+          <button>
+            <img src="/images/tablet-iconn.png" alt="Tablets" />
+            <span>Tablets</span>
+          </button>
+          <button>
+            <img src="/images/smartwatch-icon.jpg" alt="Accessories" />
+            <span>Accessories</span>
+          </button>
+          <button>
+            <img src="/images/headphones-icon.png" alt="Music" />
+            <span>Music</span>
+          </button>
+          <button>
+            <img src="/images/tv-icon.png" alt="TVs" />
+            <span>TVs</span>
+          </button>
+          <button>
+            <img src="/images/monitor-icon.jpg" alt="Monitors" />
+            <span>Monitors</span>
+          </button>
+          <button>
+            <img src="/images/gaming-icon.png" alt="Gaming" />
+            <span>Gaming</span>
+          </button>
         </div>
       </div>
 
+      {/* TIMER DE CONTAGEM REGRESSIVA DO PRODUTO EM DESTAQUE */}
       <div className="featured-product">
         <div className="featured-content">
           <h1>
@@ -249,25 +326,47 @@ export default function Home() {
             Experience
           </h1>
 
-          <span className="countdown-timer">
-            <span>DD</span>
-            <span>HH</span>
-            <span>MM</span>
-            <span>SS</span>
-          </span>
+          <div className="countdown-timer">
+            <div className="countdown-item">
+              <span className="countdown-number">
+                {String(timeLeft.days).padStart(2, "0")}
+              </span>
+              <span className="countdown-label">Days</span>
+            </div>
+            <div className="countdown-item">
+              <span className="countdown-number">
+                {String(timeLeft.hours).padStart(2, "0")}
+              </span>
+              <span className="countdown-label">Hours</span>
+            </div>
+            <div className="countdown-item">
+              <span className="countdown-number">
+                {String(timeLeft.minutes).padStart(2, "0")}
+              </span>
+              <span className="countdown-label">Minutes</span>
+            </div>
+            <div className="countdown-item">
+              <span className="countdown-number">
+                {String(timeLeft.seconds).padStart(2, "0")}
+              </span>
+              <span className="countdown-label">Seconds</span>
+            </div>
+          </div>
 
           <button className="featured-product-btn">Check It Out</button>
         </div>
 
+        {/* IMAGEM DO PRODUTO EM DESTAQUE */}
         <div className="featured-image">
           <img src="/images/iphone-17-blue-nobg.png" alt="iPhone 17 blue" />
         </div>
       </div>
 
+      {/* SEÇÃO EXPLORAR PRODUTOS */}
       <div className="explore-products">
         <h2>Explore our products</h2>
         <div className="products-grid">
-          {/* map over products here */}
+          {/* mapear produtos aqui */}
           {products.slice(0, 8).map((product) => (
             <StoreProduct
               key={product._id}
@@ -280,6 +379,9 @@ export default function Home() {
         </div>
         <button className="view-all-button">Ver Todos</button>
       </div>
+
+      {/* Barra de Rolagem */}
+      <div className="scroll-handle"></div>
     </div>
   );
 }

@@ -1,19 +1,19 @@
 const User = require("../models/userModels");
 const Product = require("../models/productModels");
 
-// Add item to cart
+// Adicionar item ao carrinho
 const addToCart = async (req, res) => {
   try {
     const { productId, quantity = 1 } = req.body;
     const userId = req.user.id;
 
-    // Validate product exists
+    // Validar se o produto existe
     const product = await Product.findById(productId);
     if (!product) {
       return res.status(404).json({ message: "Product not found" });
     }
 
-    // Find user
+    // Encontrar usuário
     const user = await User.findById(userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
